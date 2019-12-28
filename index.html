@@ -1,1 +1,45 @@
-This is Liam's super WIP personal site
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+    <head>
+        <title>Liam Fruzyna</title>
+	<script>
+            var head = document.getElementsByTagName('head')[0];
+	    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent))
+            {
+                head.innerHTML = '<link rel="stylesheet" type="text/css" href="mobile.css">';
+	    }
+            else
+	    {
+                head.innerHTML = '<link rel="stylesheet" type="text/css" href="styles.css">';
+            }
+        </script>
+    </head>
+    <body>
+        <div id="left">
+            <div id="left-content">
+		<h1>Liam Fruzyna</h1>
+		<h3>Embedded Software Engineer<br> 
+	            Motorola Solutions</h3>
+		<h4>Honors Bachelor of Science<br>
+		    Computer Science and Data Science<br>
+		    Marquette University</h4>
+	    </div>
+        </div>
+	<div id="right">
+            <div id="right-top">
+		<span class="link"><a href="https://github.com/mail929">GitHub</a></span>
+		<span class="link"><a href="https://linkedin.com/in/lfruzyna">LinkedIn</a></span>
+		<span class="link"><a href="https://mail929.github.io">Old Site</a></span>
+	    </div>
+	    <div id="right-content">
+		<h1>Welcome!</h1>
+		<p>I am Liam Fruzyna, an Embedded Software Engineer in <a href="https://www.motorolasolutions.com/en_us/solutions/national-government-security.html">Motorola Solutions'</a> Applied Technology department.
+		   Before coming to Motorola I graduated from <a href="https://www.marquette.edu/about/">Marquette University</a> in May 2019, double majoring in <a href="https://www.marquette.edu/computer-science/">Computer Science and Data Science</a>.
+		   There I worked as a Technology Support Assistant, Undergraduate Researcher, and Lead Developer on everything from <a href="https://github.com/mail929/MU-Archive/tree/master/COE-Tech">Python scripts</a> to <a href="https://github.com/MUnchMates/MUnchMates-Android">Android apps</a>, in addition to <a href="https://github.com/mail929/MU-Archive">everday course work</a>.
+		   Nowadays at Motorola, I'm working primarily in C++ with some Python on the side.
+		   In my free time I mentor my high school robotics team, <a href="https://www.thebluealliance.com/team/111">FRC Team 111</a>, where I guide software students in <a href="https://github.com/wildstang">programming robots with Java</a>.
+            </div>
+        </div>
+    </body>
+</html>
