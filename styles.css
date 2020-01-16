@@ -65,7 +65,34 @@ html, body {
 	color: black;
 }
 
+.link-cat {
+	display: inline-table;
+	height: 25px;
+	padding: 5px;
+	vertical-align: middle;
+        color: white;
+}
+
+.link-cat p {
+	display: table-cell;
+	vertical-align: middle;
+}
+
 #right-content {
 	margin-top: 51px;
 	padding: 8px;
+}
+
+.card {
+	padding: 5px;
+	background-color: thistle;
+	border-radius: 8px;
+}
+
+#footer {
+	width: 100%;
+	color: white;
+	float: bottom;
+	position: fixed;
+	bottom: 0%;
 }
