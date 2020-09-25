@@ -3,19 +3,12 @@ html, body {
 	padding: 0;
 	width: 100%;
 	height: 100%;
-	overflow: hidden;
 	font-family: "Helvetica Neue", "Arial", sans-serif;
 }
 
-#left h1, h2, h3, h4 {
-	#background-color: black;
-}
-
 #left {
-	width: 600px;
-	float: left;
+	width: 100%;
 	height: 100%;
-	padding: 8px;
 	display: table;
 	background-color: grey;
 	background-image: url("background.jpg");
@@ -29,24 +22,19 @@ html, body {
 	vertical-align: middle;
 	color: white;
 	font-size: 1.5rem;
-	width: 100%;
 	text-align: center;
 }
 
 #right {
-	height: 100%;
-	margin-left: 616px;
-	overflow: auto;
 	background-color: #FCF8FC;
 }
 
 #right-top {
 	width: 100%;
-	position: fixed;
-	top: 0;
-	float: top;
-	padding: 8px;
+	padding-top: 8px;
+	padding-bottom: 8px;
 	background-color: #662E6C;
+	text-align: center;
 }
 
 .link {
@@ -79,14 +67,16 @@ html, body {
 }
 
 #right-content {
-	margin-top: 51px;
 	padding: 8px;
 }
 
 .card {
-	padding: 5px;
+	margin: auto;
+	padding: 8px;
 	background-color: thistle;
-	border-radius: 8px;
+	border-radius: 4px;
+	margin-top: 8px;
+	max-width: 960px;
 }
 
 #footer {
