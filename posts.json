@@ -1,6 +1,7 @@
 [
     {
         "title": "Welcome!",
+        "page": "home",
         "date": "2020-09-24",
         "content": ["I'm Liam Fruzyna, an Embedded Software Engineer in <a href=\"https://www.motorolasolutions.com/en_us/solutions/national-government-security.html\">Motorola Solutions'</a> Applied Technology department.",
             "Before coming to Motorola I graduated from <a href=\"https://www.marquette.edu/about/\">Marquette University</a> in May 2019, double majoring in <a href=\"https://www.marquette.edu/computer-science/\">Computer Science and Data Science</a>.",
@@ -11,13 +12,54 @@
     },
     {
         "title": "Blog",
+        "page": "blog",
         "date": "2020-09-24",
         "content": ["This website will also serve as a portal for occasional blog posts.",
             "Because I'm subborn it is really poorly implemented, but it's just a place for me to dump thoughts. Posts can be found below."
         ]
     },
     {
+        "title": "Projects",
+        "page": "projects",
+        "date": "2020-09-25",
+        "link": "https://github.com/mail929",
+        "content": ["These are just a couple placeholder projects as I complete my website.",
+            "Please view my GitHub profile if you'd like to see more of my work.",
+            "Unfortunately due to the nature of the work, I cannot share what I work on at Motorola.",
+            "But I can confirm that I do not make phones, and nobody at the company works on the \"RAZR\"."
+        ]
+    },
+    {
+        "title": "LiamRank",
+        "page": "projects",
+        "date": "2020-09-25",
+        "link": "https://github.com/mail929/LiamRank",
+        "content": ["LiamRank is a spiritual successor to the FRC scouting app I helped develop in high school, WildRank.",
+            "This time the app is developed for the web with simple client apps written for offline use on various platforms."
+        ]
+    },
+    {
+        "title": "Personal Site",
+        "page": "projects",
+        "date": "2020-09-25",
+        "link": "https://github.com/mail929/personal-site",
+        "content": ["This website is a self-hosted project of mine.",
+            "Its some pretty basic CSS and HTML plus a few lines of JavaScript."
+        ]
+    },
+    {
+        "title": "School Work",
+        "page": "projects",
+        "date": "2020-09-25",
+        "link": "https://github.com/mail929/MU-Archive",
+        "content": ["I worked on all kinds of projects in college.",
+            "This includes Java, Python, C, JavaScript, SQL, and more.",
+            "View my archive to see a large portion of my class and job work from college."
+        ]
+    },
+    {
         "title": "Garmin Forerunner 35 Review",
+        "page": "blog",
         "date": "2019-09-20",
         "content": ["<h2>Summary</h2>",
             "I really like this watch. If you are looking for a watch primarily for running, but would like some modern smartwatch features without spending too much money I would highly recommend the Garmin Forerunner 35. It has excellent battery life and GPS tracking, plus a smattering of other useful features.",

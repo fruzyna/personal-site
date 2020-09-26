@@ -5,11 +5,56 @@
 		<title>Liam Fruzyna</title>
 		<link rel="stylesheet" type="text/css" href="styles.css">
 		<script>
+			function getQueryVariable(variable) {
+				var query = window.location.search.substring(1)
+				var vars = query.split('&')
+				for (var i = 0; i < vars.length; i++) {
+					var pair = vars[i].split('=')
+					if (decodeURIComponent(pair[0]) == variable) {
+						return decodeURIComponent(pair[1])
+					}
+				}
+			}
+
+			// get queries
+			var page = getQueryVariable('page')
+			if (page != null) {
+				page = page.toLowerCase()
+			}
+			var title = getQueryVariable('title')
+			if (title != null) {
+				title = title.toLowerCase()
+			}
+			var date = getQueryVariable('date')
+			if (date != null) {
+				date = date.toLowerCase()
+			}
+
+			// if nothing is provided go home
+			if (page == null && title == null && date == null) {
+				page = 'home'
+			}
+
 			fetch('posts.json')
 				.then(response => response.json())
 				.then(posts_json => {
 					let posts_html = ''
-					posts_json.forEach(element => posts_html += `<div class="card"><h1>${element.title}</h1><p><i>Posted on: ${element.date}</i></p><p>${element.content.join('\n')}</p></div>`);
+					// filter posts by parameters
+					posts_json.forEach(post => {
+						if ((post.page.toLowerCase() == page || page == null) && 
+							(post.title.toLowerCase() == title || title == null) && 
+							(post.date.toLowerCase() == date || date == null)) {
+							let link = ''
+							if (post.link) {
+								link = `<br>Source: <a href="${post.link}">${post.link}</a>`
+							}
+							posts_html += `<div class="card"><h1>${post.title}</h1><p><i>Posted on: ${post.date}${link}</i></p><p>${post.content.join('\n')}</p></div>`
+						}
+					})
+					// explain if nothing exists
+					if (posts_html == '') {
+						posts_html = `<div class="card"><h1>No posts found!</h1><p>Sorry, no posts were found using that filter.</p></div>`
+					}
 					document.getElementById('right-content').innerHTML = posts_html
 				});
 		</script>
@@ -18,7 +63,7 @@
     <body>
         <div id="left">
             <div id="left-content">
-				<h1>Liam Fruzyna</h1>
+				<h1><a href="/" class="subtle_link">Liam Fruzyna</a></h1>
 				<h3>Embedded Software Engineer<br> 
 					Motorola Solutions</h3>
 				<h4>Honors Bachelor of Science<br>
@@ -28,6 +73,10 @@
         </div>
 	<div id="right">
         <div id="right-top">
+			<span class="link-cat"><p>Pages:</p></span>
+			<span class="link"><a href="?page=home">Home</a></span>
+			<span class="link"><a href="?page=blog">Blog</a></span>
+			<span class="link"><a href="?page=projects">Projects</a></span>
 			<span class="link-cat"><p>Profiles:</p></span>
 			<span class="link"><a href="https://github.com/mail929">GitHub</a></span>
 			<span class="link"><a href="https://linkedin.com/in/lfruzyna">LinkedIn</a></span>

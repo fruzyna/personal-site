@@ -86,3 +86,8 @@ html, body {
 	position: fixed;
 	bottom: 0%;
 }
+
+.subtle_link {
+	color: white;
+	text-decoration: none;
+}
