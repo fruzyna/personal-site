@@ -11,6 +11,14 @@
         ]
     },
     {
+        "title": "Contact",
+        "page": "home",
+        "date": "2020-10-01",
+        "content": ["Should you want to contact me for some reason my prefered method is Telegram, you can find me @fruzyna.",
+            "Alternatively, my email is my full name at gmail."
+        ]
+    },
+    {
         "title": "Blog",
         "page": "blog",
         "date": "2020-09-24",
