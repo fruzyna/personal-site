@@ -19,14 +19,6 @@
         ]
     },
     {
-        "title": "Blog",
-        "page": "blog",
-        "date": "2020-09-24",
-        "content": ["This website will also serve as a portal for occasional blog posts.",
-            "Because I'm subborn it is really poorly implemented, but it's just a place for me to dump thoughts. Posts can be found below."
-        ]
-    },
-    {
         "title": "Projects",
         "page": "projects",
         "date": "2020-09-25",
@@ -88,6 +80,27 @@
         "date": "2020-09-26",
         "link": "https://github.com/mail929/otd-calcs-web",
         "content": ["Simple static webpage that calculates the OTD (out the door) price for a car sale."]
+    },
+    {
+        "title": "Blog",
+        "page": "blog",
+        "date": "2020-09-24",
+        "content": ["This website will also serve as a portal for occasional blog posts.",
+            "Because I'm subborn it is really poorly implemented, but it's just a place for me to dump thoughts. Posts can be found below."
+        ]
+    },
+    {
+        "title": "Reloading Imports in Python",
+        "page": "blog",
+        "date": "2020-10-09",
+        "content": ["I've been having a problem at work lately, and elsewhere for a while.",
+            "When running Jupyter notebooks with large amounts of data, sometimes I am debugging both the notebook and a local import it is using.",
+            "The problem that arrises is when a local import changes, simply re-running the import statement is not effective, the kernel must be restarted.",
+            "The main problem with this is many of these notebooks take hours to catch back up to where the bug was found, so restarting the kernel is not ideal.",
+            "Fortunately, I finally Googled my issue and found a simple solution.",
+            "<br><br><code>from importlib import reload<br>reload(import_object)</code><br><br>",
+            "Once the reload function is called, the latest version of the import should be loaded in."
+        ]
     },
     {
         "title": "Garmin Forerunner 35 Review",
