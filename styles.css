@@ -11,7 +11,7 @@ html, body {
 	height: 100%;
 	display: table;
 	background-color: grey;
-	background-image: url("background.jpg");
+	background-image: url("assets/background.jpg");
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -58,7 +58,7 @@ html, body {
 	height: 25px;
 	padding: 5px;
 	vertical-align: middle;
-        color: white;
+    color: white;
 }
 
 .link-cat p {
@@ -77,6 +77,14 @@ html, body {
 	border-radius: 4px;
 	margin-top: 8px;
 	max-width: 960px;
+}
+
+.card img {
+	max-width: 480px;
+	display: block;
+	margin: 0 auto;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 #footer {
