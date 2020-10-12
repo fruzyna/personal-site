@@ -79,6 +79,11 @@ html, body {
 	max-width: 960px;
 }
 
+.card_title {
+	text-decoration: none;
+	color: black;
+}
+
 .card img {
 	max-width: 480px;
 	display: block;

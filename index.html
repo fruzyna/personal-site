@@ -49,7 +49,7 @@
 							if (post.link) {
 								link = `<br>Source: <a href="${post.link}">${post.link}</a>`
 							}
-							posts_html += `<div class="card"><h1>${post.title}</h1><p><i>Posted on: ${post.date}${link}</i></p><p>${post.content.join('\n')}</p></div>`
+							posts_html += `<div class="card"><h1><a class="card_title" href="?date=${post.date}&title=${post.title}">${post.title}</a></h1><p><i><a class="card_title" href="?date=${post.date}">Posted on: ${post.date}</a>${link}</i></p><p>${post.content.join('\n')}</p></div>`
 						}
 					})
 					// explain if nothing exists
