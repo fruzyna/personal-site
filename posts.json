@@ -19,6 +19,16 @@
         ]
     },
     {
+        "title": "Privacy Policy",
+        "page": "privacy",
+        "date": "2020-10-24",
+        "content": ["I do not want anything to do with your data.",
+            "If the app in question does use a server host by me, Liam Fruzyna, no one will personally look at your data.",
+            "Your data will never be shared or sold.",
+            "Your data is probably not encrypted."
+        ]
+    },
+    {
         "title": "Projects",
         "page": "projects",
         "date": "2020-09-25",
