@@ -47,15 +47,14 @@
 				page = 'home'
 			}
 
-			fetch('posts.json')
+			fetch(`pages/${page}.json`)
 				.then(response => response.json())
 				.then(posts_json => {
 					let posts_html = ''
 					let posts = 0
 					// filter posts by parameters
 					posts_json.forEach(post => {
-						if ((post.page.toLowerCase() == page || page == null) && 
-							(post.title.toLowerCase() == title || title == null) && 
+						if ((post.title.toLowerCase() == title || title == null) && 
 							(post.date.toLowerCase() == date || date == null)) {
 							// limit number of posts per page
 							if (posts < POSTS_PER_PAGE)
