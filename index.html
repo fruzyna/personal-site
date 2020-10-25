@@ -12,26 +12,72 @@
 				for (var i = 0; i < vars.length; i++) {
 					var pair = vars[i].split('=')
 					if (decodeURIComponent(pair[0]) == variable) {
-						return decodeURIComponent(pair[1])
+						return decodeURIComponent(pair[1]).toLowerCase()
 					}
 				}
+			}
+
+			async function populatePage(posts_json) {
+				let posts_html = ''
+				let posts = 0
+				// filter posts by parameters
+				for (let i = 0; i < posts_json.length; ++i) {
+					let post = posts_json[i]
+					if ((post.title.toLowerCase() == title || title == null) && 
+						(post.date.toLowerCase() == date || date == null)) {
+						// limit number of posts per page
+						if (posts < POSTS_PER_PAGE)
+						{
+							// skip posts until on appropriate page
+							if (skip <= 0) {
+								let link = ''
+								if (post.link) {
+									link = `<br>Source: <a href="${post.link}">${post.link}</a>`
+								}
+								if (post.content_src) {
+									const reponse = await fetch(post.content_src)
+									const text = await reponse.text()
+									posts_html += `<div class="card"><h1><a class="card_title" href="?date=${post.date}&title=${post.title}">${post.title}</a></h1><p><i><a class="card_title" href="?date=${post.date}">Posted on: ${post.date}</a>${link}</i></p><p id="${post.content_src}">${text}</p></div>`
+								}
+								else {
+									posts_html += `<div class="card"><h1><a class="card_title" href="?date=${post.date}&title=${post.title}">${post.title}</a></h1><p><i><a class="card_title" href="?date=${post.date}">Posted on: ${post.date}</a>${link}</i></p><p>${post.content.join('\n')}</p></div>`
+								}
+								++posts
+							}
+							--skip
+						}
+						else {
+							more = true
+						}
+					}
+				}
+				
+				// explain if nothing exists
+				if (posts_html == '') {
+					posts_html = `<div class="card"><h1>No posts found!</h1><p>Sorry, no posts were found using that filter.</p></div>`
+				}
+				// add previous/next page buttons is appropriate
+				else {
+					posts_html += '<br><center>'
+					if (page_num != 0) {
+						posts_html += `<a href="?page=${page}&page_num=${page_num-1}"> << Previous Page </a> `
+					}
+					if (more) {
+						posts_html += `<a href="?page=${page}&page_num=${page_num+1}" > Next Page >> </a>`
+					}
+					posts_html += '</center><br>'
+				}
+
+				// add posts to page
+				document.getElementById('right-content').innerHTML = posts_html
 			}
 
 			const POSTS_PER_PAGE = 5
 
 			// get queries
 			var page = getQueryVariable('page')
-			if (page != null) {
-				page = page.toLowerCase()
-			}
 			var title = getQueryVariable('title')
-			if (title != null) {
-				title = title.toLowerCase()
-			}
 			var date = getQueryVariable('date')
-			if (date != null) {
-				date = date.toLowerCase()
-			}
 			var page_num = getQueryVariable('page_num')
 			if (page_num != null) {
 				page_num = parseInt(page_num)
@@ -49,53 +95,7 @@
 
 			fetch(`pages/${page}.json`)
 				.then(response => response.json())
-				.then(posts_json => {
-					let posts_html = ''
-					let posts = 0
-					// filter posts by parameters
-					posts_json.forEach(post => {
-						if ((post.title.toLowerCase() == title || title == null) && 
-							(post.date.toLowerCase() == date || date == null)) {
-							// limit number of posts per page
-							if (posts < POSTS_PER_PAGE)
-							{
-								// skip posts until on appropriate page
-								if (skip <= 0) {
-									let link = ''
-									if (post.link) {
-										link = `<br>Source: <a href="${post.link}">${post.link}</a>`
-									}
-									posts_html += `<div class="card"><h1><a class="card_title" href="?date=${post.date}&title=${post.title}">${post.title}</a></h1><p><i><a class="card_title" href="?date=${post.date}">Posted on: ${post.date}</a>${link}</i></p><p>${post.content.join('\n')}</p></div>`
-									++posts
-								}
-								--skip
-							}
-							else {
-								more = true
-							}
-						}
-					})
-					
-					// explain if nothing exists
-					if (posts_html == '') {
-						posts_html = `<div class="card"><h1>No posts found!</h1><p>Sorry, no posts were found using that filter.</p></div>`
-					}
-					// add previous/next page buttons is appropriate
-					else {
-						posts_html += '<br><center>'
-						if (page_num != 0) {
-							posts_html += `<a href="?page=${page}&page_num=${page_num-1}"> << Previous Page </a> `
-						}
-						if (more) {
-							posts_html += `<a href="?page=${page}&page_num=${page_num+1}" > Next Page >> </a>`
-						}
-						posts_html += '</center><br>'
-					}
-
-					// add posts to page
-					document.getElementById('right-content').innerHTML = posts_html
-
-				});
+				.then(posts_json => populatePage(posts_json))
 		</script>
 		<a rel="me" href="https://mastodon.technology/@mail929"></a>
     </head>

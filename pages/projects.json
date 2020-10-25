@@ -1,7 +1,6 @@
 [
     {
         "title": "Projects",
-        "page": "projects",
         "date": "2020-09-25",
         "link": "https://github.com/mail929",
         "content": ["These are just a couple placeholder projects as I complete my website.",
@@ -12,7 +11,6 @@
     },
     {
         "title": "LiamRank",
-        "page": "projects",
         "date": "2020-09-25",
         "link": "https://github.com/mail929/LiamRank",
         "content": ["LiamRank is a spiritual successor to the FRC scouting app I helped develop in high school, WildRank.",
@@ -21,7 +19,6 @@
     },
     {
         "title": "Finance v2",
-        "page": "projects",
         "date": "2020-09-26",
         "link": "https://github.com/mail929/Finance-v2",
         "content": ["Once apon a time I made a command line finances application with Pandas and a CSV file.",
@@ -31,7 +28,6 @@
     },
     {
         "title": "Personal Site",
-        "page": "projects",
         "date": "2020-09-25",
         "link": "https://github.com/mail929/personal-site",
         "content": ["This website is a self-hosted project of mine.",
@@ -40,7 +36,6 @@
     },
     {
         "title": "School Work",
-        "page": "projects",
         "date": "2020-09-25",
         "link": "https://github.com/mail929/MU-Archive",
         "content": ["I worked on all kinds of projects in college.",
@@ -50,14 +45,12 @@
     },
     {
         "title": "Homepage",
-        "page": "projects",
         "date": "2020-09-26",
         "link": "https://github.com/mail929/homepage",
         "content": ["Simple webpage that displays the time, a list of folders containing links and 2 groups of RSS feeds."]
     },
     {
         "title": "OTD Calcs Web",
-        "page": "projects",
         "date": "2020-09-26",
         "link": "https://github.com/mail929/otd-calcs-web",
         "content": ["Simple static webpage that calculates the OTD (out the door) price for a car sale."]

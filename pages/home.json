@@ -1,7 +1,6 @@
 [
     {
         "title": "Welcome!",
-        "page": "home",
         "date": "2020-09-24",
         "content": ["I'm Liam Fruzyna, an Embedded Software Engineer in <a href=\"https://www.motorolasolutions.com/en_us/solutions/national-government-security.html\">Motorola Solutions'</a> Applied Technology department.",
             "Before coming to Motorola I graduated from <a href=\"https://www.marquette.edu/about/\">Marquette University</a> in May 2019, double majoring in <a href=\"https://www.marquette.edu/computer-science/\">Computer Science and Data Science</a>.",
@@ -12,7 +11,6 @@
     },
     {
         "title": "Contact",
-        "page": "home",
         "date": "2020-10-01",
         "content": ["Should you want to contact me for some reason my prefered method is Telegram, you can find me @fruzyna.",
             "Alternatively, my email is my full name at gmail."
