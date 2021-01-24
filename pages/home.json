@@ -12,7 +12,7 @@
     {
         "title": "Contact",
         "date": "2020-10-01",
-        "content": ["Should you want to contact me for some reason my prefered method is Telegram, you can find me @fruzyna.",
+        "content": ["Should you want to contact me for some reason my prefered method is Telegram, you can find me <a href=\"https://t.me/fruzyna\">@fruzyna</a>.",
             "Alternatively, my email is my full name at gmail."
         ]
     }
