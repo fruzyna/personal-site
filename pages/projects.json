@@ -2,7 +2,7 @@
     {
         "title": "Projects",
         "date": "2020-09-25",
-        "link": "https://github.com/mail929",
+        "link": "https://github.com/fruzyna",
         "content": ["These are just a couple placeholder projects as I complete my website.",
             "Please view my GitHub profile if you'd like to see more of my work.",
             "Unfortunately due to the nature of the work, I cannot share what I work on at Motorola.",
@@ -12,7 +12,7 @@
     {
         "title": "LiamRank",
         "date": "2020-09-25",
-        "link": "https://github.com/mail929/LiamRank",
+        "link": "https://github.com/fruzyna/LiamRank",
         "content": ["LiamRank is a spiritual successor to the FRC scouting app I helped develop in high school, WildRank.",
             "This time the app is developed for the web with simple client apps written for offline use on various platforms."
         ]
@@ -20,7 +20,7 @@
     {
         "title": "Finance v2",
         "date": "2020-09-26",
-        "link": "https://github.com/mail929/Finance-v2",
+        "link": "https://github.com/fruzyna/Finance-v2",
         "content": ["Once apon a time I made a command line finances application with Pandas and a CSV file.",
             "Then I added a web interface on top of it, it became very messy.",
             "Now I have Finance v2 which is an Express.js web app with a MariaDB server and user accounts."
@@ -29,7 +29,7 @@
     {
         "title": "Personal Site",
         "date": "2020-09-25",
-        "link": "https://github.com/mail929/personal-site",
+        "link": "https://github.com/fruzyna/personal-site",
         "content": ["This website is a self-hosted project of mine.",
             "Its some pretty basic CSS and HTML plus a few lines of JavaScript."
         ]
@@ -37,7 +37,7 @@
     {
         "title": "School Work",
         "date": "2020-09-25",
-        "link": "https://github.com/mail929/MU-Archive",
+        "link": "https://github.com/fruzyna/MU-Archive",
         "content": ["I worked on all kinds of projects in college.",
             "This includes Java, Python, C, JavaScript, SQL, and more.",
             "View my archive to see a large portion of my class and job work from college."
@@ -46,13 +46,13 @@
     {
         "title": "Homepage",
         "date": "2020-09-26",
-        "link": "https://github.com/mail929/homepage",
+        "link": "https://github.com/fruzyna/homepage",
         "content": ["Simple webpage that displays the time, a list of folders containing links and 2 groups of RSS feeds."]
     },
     {
         "title": "OTD Calcs Web",
         "date": "2020-09-26",
-        "link": "https://github.com/mail929/otd-calcs-web",
+        "link": "https://github.com/fruzyna/otd-calcs-web",
         "content": ["Simple static webpage that calculates the OTD (out the door) price for a car sale."]
     }
 ]
