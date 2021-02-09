@@ -60,10 +60,10 @@
 				else {
 					posts_html += '<br><center>'
 					if (page_num != 0) {
-						posts_html += `<a href="?page=${page}&page_num=${page_num-1}"> << Previous Page </a> `
+						posts_html += `<a href="?page=${page}&page_num=${page_num-1}#right-top"> << Previous Page </a> `
 					}
 					if (more) {
-						posts_html += `<a href="?page=${page}&page_num=${page_num+1}" > Next Page >> </a>`
+						posts_html += `<a href="?page=${page}&page_num=${page_num+1}#right-top"> Next Page >> </a>`
 					}
 					posts_html += '</center><br>'
 				}
@@ -114,8 +114,8 @@
         <div id="right-top">
 			<span class="link-cat"><p>Pages:</p></span>
 			<span class="link"><a href="?page=home">Home</a></span>
-			<span class="link"><a href="?page=blog">Blog</a></span>
-			<span class="link"><a href="?page=projects">Projects</a></span>
+			<span class="link"><a href="?page=blog#right-top">Blog</a></span>
+			<span class="link"><a href="?page=projects#right-top">Projects</a></span>
 			<span class="link-cat"><p>Profiles:</p></span>
 			<span class="link"><a href="https://github.com/fruzyna">GitHub</a></span>
 			<span class="link"><a href="https://linkedin.com/in/lfruzyna">LinkedIn</a></span>
