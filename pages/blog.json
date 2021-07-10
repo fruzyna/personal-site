@@ -7,6 +7,11 @@
         ]
     },
     {
+        "title": "About Wireguard Configs and My Config Generation Script",
+        "date": "2021-07-10",
+        "content_src": "assets/wireguard.html"
+    },
+    {
         "title": "Nintendo Switch Lite Review",
         "date": "2020-10-24",
         "content_src": "assets/switch/switch.html"

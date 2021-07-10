@@ -1,0 +1,79 @@
+I've for quite a while now used Wireguard to configure, but generally I used someone else's work to generate myself a config.
+But I wanted to know how it actually works and take advantage of some of the more advanced features of Wireguard.
+So I learned a lot, built a script, and am going to share it with you.
+<h2>Our Model</h2>
+There are many different ways to configure a Wireguard network, but here I will focus on a single client-server style model.
+In this model there is one client where the host has an open port and N clients.
+The clients connect to the "server" and route specified traffic through it.
+<h2>Configuration</h2>
+The easiest way to configure Wireguard (in my opinion) is to create a config file at <code>/etc/wireguard/wg0.conf</code>.
+Then once configured the Wireguard interface can be brought up/down with <code>wg-quick up/down wg0</code>.
+I believe any name can be used for the config here, but <code>wg0</code> is the default name of sorts.
+<br>
+These configuration files have two sections, <code>[Interface]</code> and <code>[Peer]</code>s.
+The interface section describes the Wireguard interface on the host.
+This always includes its address and private key.
+In the case of a server it includes a port and in the case of a client it includes a DNS address.
+<br>
+<code>
+[Interface]
+Address = 192.168.1.1
+ListenPort = 51820
+PrivateKey = SERVER_PRIVATE_KEY=
+
+[Peer]
+PublicKey = CLIENT_PUBLIC_KEY=
+AllowedIPs = 192.168.1.2/32
+</code>
+Peers on the other hand describe other Wireguard clients networked with the host.
+These always include a public key and allowed IPs (IPs that are routed to that peer).
+For clients there will also be an end point to route traffic through.
+This IP address could be an external or internal IP, depending on if the client is on the same network or not.
+<br>
+<code>
+[Interface]
+Address = 192.168.7.2
+PrivateKey = CLIENT_PRIVATE_KEY=
+DNS = 1.1.1.1
+
+[Peer]
+PublicKey = SERVER_PUBLIC_KEY=
+EndPoint = SERVER_ADDRESS:51820
+AllowedIPs = 0.0.0.0/0
+</code>
+<h3>Allowed IPs</h3>
+As mentioned before, all peer sections should define a set of allowed IPs.
+This value is a comma-separated list of IPs which traffic destined for should be routed through this peer.
+For example, generally on the host side there is one peer per client and a single allowed IP for each, representing the IP address of the client.
+This means that only traffic destined for the client is routed to the client.
+On the client side generally a range of IPs is routed back to the server.
+Here the allowed IP could be a range just representing the Wireguard subnet (like <code>192.168.1.0/24</code>) or representing all traffic (like <code>0.0.0.0/0</code>).
+<h4>Communicating with Peers on Clients' Other Interfaces</h4>
+The beauty of Wireguard is that you only need the single host open to the internet to route just about any traffic around.
+For example, if you have the server on one network "A" and a client on another network "B" Wireguard can be configured to route traffic destined for other (not connected to Wireguard) devices on B from anywhere on the Wireguard network.
+First, on the server side add the B network subnet (like <code>192.168.2.0/24</code>) to the allowed IPs list for the peer representing the Wireguard client on that network.
+Then, on the client side add post up and post down iptables commands to the interface section using the interface connected to network B.
+<br>
+<code>
+PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o [B_INTERFACE] -j MASQUERADE
+PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT; iptables -t nat -D POSTROUTING -o [B_INTERFACE] -j MASQUERADE
+</code>
+<br>
+I don't fully understand these commands but from my understanding when the Wireguard interface is brought up/down route all incoming traffic on the Wireguard interface through to B_INTERFACE.
+<h3>Preshared Keys</h3>
+For additional security a preshared key can be generated and shared between a single pair of peers.
+In this configuration a key is shared between the peer sections of the server and each respective client.
+<br>
+<code>
+PresharedKey = PRESHARED_KEY=
+</code>
+<h2>Generating Public/Private and Preshared Keys</h2>
+A private and public key will need to be generated for each peer on the Wireguard network.
+First, the private key is generated with <code>(umask 0077; wg genkey > NAME.key)</code>.
+Then, the public key is generated using the private key <code>wg pubkey < NAME.key > NAME.pub</code>.
+These commands will each create a file containing the string used for the keys in the config file.
+Preshared keys are generated using the same command as private keys, but no corresponding key is needed.
+<code>(umask 0077; wg genpsk > NAME.psk)</code>
+<h2>Generating a QR Code of Configuration File</h2>
+The easiest way to move a config file to a mobile client is with a QR code.
+<code>qrencode -t ansiutf8 -r NAME.conf</code>
