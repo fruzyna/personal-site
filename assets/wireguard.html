@@ -84,3 +84,14 @@ Preshared keys are generated using the same command as private keys, but no corr
 The easiest way to move a config file to a mobile client is with a QR code.
 <br><br>
 <code>qrencode -t ansiutf8 -r NAME.conf</code>
+<h2>The Script</h2>
+As alluded to, I put this knowledge I learned into - what I consider - a convienent script.
+The script can be <a href="https://gist.github.com/fruzyna/e8ebfae37d41c918b80ee9c3d3aa4ccf">found here</a>.
+First, the script has a range of constants that should be defined before use.
+Some of these constants can be overriden with parameters but the intended use case is having a static script in a directory containing all configuration files.
+This way new configuration for additional peers can be quickly generated without remembering every parameter used.
+Once parameters are processed, the script generates a private, public, and shared key.
+Then it looks for a server config file, if that does not exist a new one is generated.
+Next the script counts existing config files to determine the IP address of the new peer.
+The new client's config file is generated, then the peer is added to the server's config file.
+Finally, a QR code is generated.
