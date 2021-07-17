@@ -6,15 +6,22 @@
         "content": ["These are just a couple placeholder projects as I complete my website.",
             "Please view my GitHub profile if you'd like to see more of my work.",
             "Unfortunately due to the nature of the work, I cannot share what I work on at Motorola.",
-            "But I can confirm that I do not make phones, and nobody at the company works on the \"RAZR\"."
+            "But I can confirm that I do not make phones and nobody at the company works on the \"RAZR\"."
         ]
+    },
+    {
+        "title": "Web IDE Manager",
+        "date": "2021-07-17",
+        "link": "https://github.com/fruzyna/web-ide-manager",
+        "content": ["Web IDE manager is designed to allow easy deployment and access to web IDEs like <a href=\"https://github.com/cdr/code-server\">code-server</a> and <a href=\"https://jupyter.org\">Jupyter Lab</a>."]
     },
     {
         "title": "LiamRank",
         "date": "2020-09-25",
         "link": "https://github.com/fruzyna/LiamRank",
         "content": ["LiamRank is a spiritual successor to the FRC scouting app I helped develop in high school, WildRank.",
-            "This time the app is developed for the web with simple client apps written for offline use on various platforms."
+            "This time the app is developed for the web with simple client apps written for offline use on various platforms.",
+            "There are also <a href=\"https://github.com/fruzyna/LiamRank-Android\">Android</a> and <a href=\"https://github.com/fruzyna/LiamRank-iOS\">iOS</a> clients for running the web app on mobile devices."
         ]
     },
     {
