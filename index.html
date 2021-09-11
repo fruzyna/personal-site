@@ -96,6 +96,22 @@
 			fetch(`pages/${page}.json`)
 				.then(response => response.json())
 				.then(posts_json => populatePage(posts_json))
+
+			document.addEventListener('scroll', function (e) {
+				let bar = document.getElementById('right-top')
+				let page = document.getElementById('right-content')
+				let bpos = bar.getBoundingClientRect()
+				let ipos = document.getElementById('left').getBoundingClientRect()
+				if (ipos.top > -ipos.height) {
+					bar.style.position = ''
+					page.style.marginTop = 0
+				}
+				else if (bpos.top <= 0) {
+					bar.style.position = 'fixed'
+					page.style.marginTop = bpos.height + 'px'
+					console.log(bpos.height)
+				}
+			})
 		</script>
 		<a rel="me" href="https://mastodon.technology/@mail929"></a>
     </head>
