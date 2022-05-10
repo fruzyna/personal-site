@@ -1,12 +1,12 @@
 [
     {
         "title": "Welcome!",
-        "date": "2020-09-24",
+        "date": "2022-05-09",
         "content": ["I'm Liam Fruzyna, a Software Engineer in <a href=\"https://www.motorolasolutions.com/en_us/solutions/applied-technology.html\">Motorola Solutions' Applied Technology group</a>.",
             "Before coming to Motorola I graduated from <a href=\"https://www.marquette.edu/about/\">Marquette University</a> in May 2019, double majoring in <a href=\"https://www.marquette.edu/computer-science/\">Computer Science and Data Science</a>.",
-            "There I worked as a Technology Support Assistant, Undergraduate Researcher, and Lead Developer making <a href=\"https://github.com/fruzyna/MU-Archive/tree/master/COE-Tech\">Python scripts</a> and <a href=\"https://github.com/MUnchMates/MUnchMates-Android\">Android apps</a>, plus <a href=\"https://github.com/fruzyna/MU-Archive\">my everday course work</a>.",
+            "At Marquette I worked as a Technology Support Assistant, Undergraduate Researcher, and Lead Developer making <a href=\"https://github.com/fruzyna/MU-Archive/tree/master/COE-Tech\">Python scripts</a> and <a href=\"https://github.com/MUnchMates/MUnchMates-Android\">Android apps</a>, plus <a href=\"https://github.com/fruzyna/MU-Archive\">my everday course work</a>.",
             "Nowadays at Motorola, I'm working primarily in Python with some C++ and JavaScript on the side.",
-            "In my free time I mentor my high school robotics team, <a href=\"https://www.thebluealliance.com/team/111\">FRC Team 111</a>, where I guide software students in <a href=\"https://github.com/wildstang\">programming robots with Java</a> and am rebooting my high school project <a href=\"https://github.com/fruzyna/LiamRank\">WildRank</a>."
+            "In my free time I mentor the <a href=\"https://wildstang.org\">WildStang Robotics Program</a> where I guide software students in <a href=\"https://github.com/wildstang\">programming robots with Java</a> while rebooting my high school project <a href=\"https://github.com/fruzyna/LiamRank\">WildRank</a>."
         ]
     },
     {

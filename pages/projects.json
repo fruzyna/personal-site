@@ -16,12 +16,11 @@
         "content": ["Web IDE manager is designed to allow easy deployment and access to web IDEs like <a href=\"https://github.com/cdr/code-server\">code-server</a> and <a href=\"https://jupyter.org\">Jupyter Lab</a>."]
     },
     {
-        "title": "LiamRank",
+        "title": "WildRank",
         "date": "2020-09-25",
-        "link": "https://github.com/fruzyna/LiamRank",
-        "content": ["LiamRank is a spiritual successor to the FRC scouting app I helped develop in high school, WildRank.",
-            "This time the app is developed for the web with simple client apps written for offline use on various platforms.",
-            "There are also <a href=\"https://github.com/fruzyna/LiamRank-Android\">Android</a> and <a href=\"https://github.com/fruzyna/LiamRank-iOS\">iOS</a> clients for running the web app on mobile devices."
+        "link": "https://github.com/fruzyna/WildRank",
+        "content": ["WildRank is a spiritual successor to the FRC scouting app of the same name I helped develop in high school",
+            "This time the app is developed for the web as a mostly serverless progressive web app."
         ]
     },
     {
