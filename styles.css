@@ -23,16 +23,17 @@ html, body {
 	color: white;
 	font-size: 1.5rem;
 	text-align: center;
+	padding-bottom: 5%;
 }
 
 #right {
 	background-color: #FCF8FC;
+	min-height: 100%;
 }
 
 #right-top {
 	width: 100%;
 	padding-top: 8px;
-	padding-bottom: 8px;
 	background-color: #662E6C;
 	text-align: center;
 	top: 0;
@@ -40,11 +41,15 @@ html, body {
 
 .link {
 	display: inline-table;
-	height: 25px;
 	padding: 5px;
 	vertical-align: middle;
 	background-color: plum;
 	border-radius: 8px;
+	margin-bottom: 8px;
+}
+
+.link:hover {
+	background-color: #75427a;
 }
 
 .link a {
@@ -52,19 +57,23 @@ html, body {
 	vertical-align: middle;
 	text-decoration: none;
 	color: black;
+	font-size: larger;
+	padding: 10px;
 }
 
 .link-cat {
 	display: inline-table;
-	height: 25px;
 	padding: 5px;
 	vertical-align: middle;
     color: white;
+	font-size: large;
+	margin-bottom: 8px;
 }
 
 .link-cat p {
 	display: table-cell;
 	vertical-align: middle;
+	padding: 10px;
 }
 
 #right-content {
@@ -73,11 +82,12 @@ html, body {
 
 .card {
 	margin: auto;
-	padding: 8px;
+	padding: 16px;
 	background-color: thistle;
-	border-radius: 4px;
+	border-radius: 8px;
 	margin-top: 8px;
 	max-width: 960px;
+	line-height: 1.33;
 }
 
 .card_title {
