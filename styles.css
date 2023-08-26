@@ -85,7 +85,8 @@ html, body {
 }
 
 #right-content {
-	padding: 0;
+	padding: 8px;
+	padding-top: 0;
 }
 
 .card {
