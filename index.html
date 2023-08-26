@@ -38,10 +38,10 @@
 								if (post.content_src) {
 									const reponse = await fetch(post.content_src)
 									const text = await reponse.text()
-									posts_html += `<div class="card"><h1><a class="card_title" href="?page=${page}&date=${post.date}&title=${post.title}">${post.title}</a></h1><p><i><a class="card_title" href="?page=${page}&date=${post.date}">Posted on: ${post.date}</a>${link}</i></p><p id="${post.content_src}">${text}</p></div>`
+									posts_html += `<div class="card"><h1 class="post-title"><a class="card_title" href="?page=${page}&date=${post.date}&title=${post.title}">${post.title}</a></h1><p class="post-date"><i><a class="card_title" href="?page=${page}&date=${post.date}">Posted on: ${post.date}</a>${link}</i></p><p id="${post.content_src}" class="post-content">${text}</p></div>`
 								}
 								else {
-									posts_html += `<div class="card"><h1><a class="card_title" href="?page=${page}&date=${post.date}&title=${post.title}">${post.title}</a></h1><p><i><a class="card_title" href="?page=${page}&date=${post.date}">Posted on: ${post.date}</a>${link}</i></p><p>${post.content.join('\n')}</p></div>`
+									posts_html += `<div class="card"><h1 class="post-title"><a class="card_title" href="?page=${page}&date=${post.date}&title=${post.title}">${post.title}</a></h1><p class="post-date"><i><a class="card_title" href="?page=${page}&date=${post.date}">Posted on: ${post.date}</a>${link}</i></p><p class="post-content">${post.content.join('\n')}</p></div>`
 								}
 								++posts
 							}
@@ -119,23 +119,19 @@
         <div id="left">
             <div id="left-content">
 				<h1><a href="/" class="subtle_link">Liam Fruzyna</a></h1>
-				<h3>Software Engineer II<br> 
-					Motorola Solutions</h3>
-				<h4>Honors Bachelor of Science<br>
-					Computer Science and Data Science<br>
-					Marquette University</h4>
+				<h3>Software Engineer II</h3>
+				<h3>Motorola Solutions</h3>
 			</div>
         </div>
 		<div id="right">
 			<div id="right-top">
-				<span class="link-cat"><p>Pages</p></span>
 				<span class="link"><a href="?page=home">Home</a></span>
 				<span class="link"><a href="?page=blog#right-top">Blog</a></span>
 				<span class="link"><a href="?page=projects#right-top">Projects</a></span>
-				<span class="link-cat"><p>Profiles</p></span>
+				<span class="link-cat"></span>
 				<span class="link"><a href="https://github.com/fruzyna">GitHub</a></span>
 				<span class="link"><a href="https://linkedin.com/in/lfruzyna">LinkedIn</a></span>
-				<span class="link-cat"><p>Live Projects</p></span>
+				<span class="link-cat"></span>
 				<span class="link"><a href="https://otd.fruzyna.net">OTD Calculator</a></span>
 				<span class="link"><a href="https://homepage.fruzyna.net">Homepage</a></span>
 				<span class="link"><a href="https://wildrank.wildstang.dev">WildRank</a></span>
