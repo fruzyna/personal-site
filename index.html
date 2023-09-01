@@ -2,142 +2,142 @@
 <meta charset="UTF-8">
 <html>
     <head>
-		<title>Liam Fruzyna</title>
-		<meta name="theme-color" content="#662E6C">
-		<link rel="stylesheet" type="text/css" href="styles.css">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-		<script>
-			function getQueryVariable(variable) {
-				var query = window.location.search.substring(1)
-				var vars = query.split('&')
-				for (var i = 0; i < vars.length; i++) {
-					var pair = vars[i].split('=')
-					if (decodeURIComponent(pair[0]) == variable) {
-						return decodeURIComponent(pair[1]).toLowerCase()
-					}
-				}
-			}
+        <title>Liam Fruzyna</title>
+        <meta name="theme-color" content="#662E6C">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <script>
+            function getQueryVariable(variable) {
+                var query = window.location.search.substring(1)
+                var vars = query.split('&')
+                for (var i = 0; i < vars.length; i++) {
+                    var pair = vars[i].split('=')
+                    if (decodeURIComponent(pair[0]) == variable) {
+                        return decodeURIComponent(pair[1]).toLowerCase()
+                    }
+                }
+            }
 
-			async function populatePage(posts_json) {
-				let posts_html = ''
-				let posts = 0
-				// filter posts by parameters
-				for (let i = 0; i < posts_json.length; ++i) {
-					let post = posts_json[i]
-					if ((post.title.toLowerCase() == title || title == null) && 
-						(post.date.toLowerCase() == date || date == null)) {
-						// limit number of posts per page
-						if (posts < POSTS_PER_PAGE)
-						{
-							// skip posts until on appropriate page
-							if (skip <= 0) {
-								let link = ''
-								if (post.link) {
-									link = `<br>Source: <a href="${post.link}">${post.link}</a>`
-								}
-								if (post.content_src) {
-									const reponse = await fetch(post.content_src)
-									const text = await reponse.text()
-									posts_html += `<div class="card"><h1 class="post-title"><a class="card_title" href="?page=${page}&date=${post.date}&title=${post.title}">${post.title}</a></h1><p class="post-date"><i><a class="card_title" href="?page=${page}&date=${post.date}">Posted on: ${post.date}</a>${link}</i></p><p id="${post.content_src}" class="post-content">${text}</p></div>`
-								}
-								else {
-									posts_html += `<div class="card"><h1 class="post-title"><a class="card_title" href="?page=${page}&date=${post.date}&title=${post.title}">${post.title}</a></h1><p class="post-date"><i><a class="card_title" href="?page=${page}&date=${post.date}">Posted on: ${post.date}</a>${link}</i></p><p class="post-content">${post.content.join('\n')}</p></div>`
-								}
-								++posts
-							}
-							--skip
-						}
-						else {
-							more = true
-						}
-					}
-				}
-				
-				// explain if nothing exists
-				if (posts_html == '') {
-					posts_html = `<div class="card"><h1>No posts found!</h1><p>Sorry, no posts were found using that filter.</p></div>`
-				}
-				// add previous/next page buttons is appropriate
-				else {
-					posts_html += '<br><center>'
-					if (page_num != 0) {
-						posts_html += `<a href="?page=${page}&page_num=${page_num-1}#right-top"> << Previous Page </a> `
-					}
-					if (more) {
-						posts_html += `<a href="?page=${page}&page_num=${page_num+1}#right-top"> Next Page >> </a>`
-					}
-					posts_html += '</center><br>'
-				}
+            async function populatePage(posts_json) {
+                let posts_html = ''
+                let posts = 0
+                // filter posts by parameters
+                for (let i = 0; i < posts_json.length; ++i) {
+                    let post = posts_json[i]
+                    if ((post.title.toLowerCase() == title || title == null) && 
+                        (post.date.toLowerCase() == date || date == null)) {
+                        // limit number of posts per page
+                        if (posts < POSTS_PER_PAGE)
+                        {
+                            // skip posts until on appropriate page
+                            if (skip <= 0) {
+                                let link = ''
+                                if (post.link) {
+                                    link = `<br>Source: <a href="${post.link}">${post.link}</a>`
+                                }
+                                if (post.content_src) {
+                                    const reponse = await fetch(post.content_src)
+                                    const text = await reponse.text()
+                                    posts_html += `<div class="card"><h1 class="post-title"><a class="card_title" href="?page=${page}&date=${post.date}&title=${post.title}">${post.title}</a></h1><p class="post-date"><i><a class="card_title" href="?page=${page}&date=${post.date}">Posted on: ${post.date}</a>${link}</i></p><p id="${post.content_src}" class="post-content">${text}</p></div>`
+                                }
+                                else {
+                                    posts_html += `<div class="card"><h1 class="post-title"><a class="card_title" href="?page=${page}&date=${post.date}&title=${post.title}">${post.title}</a></h1><p class="post-date"><i><a class="card_title" href="?page=${page}&date=${post.date}">Posted on: ${post.date}</a>${link}</i></p><p class="post-content">${post.content.join('\n')}</p></div>`
+                                }
+                                ++posts
+                            }
+                            --skip
+                        }
+                        else {
+                            more = true
+                        }
+                    }
+                }
+                
+                // explain if nothing exists
+                if (posts_html == '') {
+                    posts_html = `<div class="card"><h1>No posts found!</h1><p>Sorry, no posts were found using that filter.</p></div>`
+                }
+                // add previous/next page buttons is appropriate
+                else {
+                    posts_html += '<br><center>'
+                    if (page_num != 0) {
+                        posts_html += `<a href="?page=${page}&page_num=${page_num-1}#right-top"> << Previous Page </a> `
+                    }
+                    if (more) {
+                        posts_html += `<a href="?page=${page}&page_num=${page_num+1}#right-top"> Next Page >> </a>`
+                    }
+                    posts_html += '</center><br>'
+                }
 
-				// add posts to page
-				document.getElementById('right-content').innerHTML = posts_html
-			}
+                // add posts to page
+                document.getElementById('right-content').innerHTML = posts_html
+            }
 
-			const POSTS_PER_PAGE = 5
+            const POSTS_PER_PAGE = 5
 
-			// get queries
-			var page = getQueryVariable('page')
-			var title = getQueryVariable('title')
-			var date = getQueryVariable('date')
-			var page_num = getQueryVariable('page_num')
-			if (page_num != null) {
-				page_num = parseInt(page_num)
-			}
-			else {
-				page_num = 0
-			}
-			var skip = page_num * POSTS_PER_PAGE
-			var more = false
+            // get queries
+            var page = getQueryVariable('page')
+            var title = getQueryVariable('title')
+            var date = getQueryVariable('date')
+            var page_num = getQueryVariable('page_num')
+            if (page_num != null) {
+                page_num = parseInt(page_num)
+            }
+            else {
+                page_num = 0
+            }
+            var skip = page_num * POSTS_PER_PAGE
+            var more = false
 
-			// if nothing is provided go home
-			if (page == null && title == null && date == null) {
-				page = 'home'
-			}
+            // if nothing is provided go home
+            if (page == null && title == null && date == null) {
+                page = 'home'
+            }
 
-			fetch(`pages/${page}.json`)
-				.then(response => response.json())
-				.then(posts_json => populatePage(posts_json))
+            fetch(`pages/${page}.json`)
+                .then(response => response.json())
+                .then(posts_json => populatePage(posts_json))
 
-			document.addEventListener('scroll', function (e) {
-				let bar = document.getElementById('right-top')
-				let page = document.getElementById('right-content')
-				let bpos = bar.getBoundingClientRect()
-				let ipos = document.getElementById('left').getBoundingClientRect()
-				if (ipos.top > -ipos.height) {
-					bar.style.position = ''
-					page.style.marginTop = 0
-				}
-				else if (bpos.top <= 0) {
-					bar.style.position = 'fixed'
-					page.style.marginTop = bpos.height + 'px'
-				}
-			})
-		</script>
+            document.addEventListener('scroll', function (e) {
+                let bar = document.getElementById('right-top')
+                let page = document.getElementById('right-content')
+                let bpos = bar.getBoundingClientRect()
+                let ipos = document.getElementById('left').getBoundingClientRect()
+                if (ipos.top > -ipos.height) {
+                    bar.style.position = ''
+                    page.style.marginTop = 0
+                }
+                else if (bpos.top <= 0) {
+                    bar.style.position = 'fixed'
+                    page.style.marginTop = bpos.height + 'px'
+                }
+            })
+        </script>
     </head>
     <body>
-		<a rel="me" href="https://mastodon.social/@fruzyna"></a>
+        <a rel="me" href="https://mastodon.social/@fruzyna"></a>
         <div id="left">
             <div id="left-content">
-				<h1><a href="/" class="subtle_link">Liam Fruzyna</a></h1>
-				<h3>Software Engineer II</h3>
-				<h3>Motorola Solutions</h3>
-			</div>
+                <h1><a href="/" class="subtle_link">Liam Fruzyna</a></h1>
+                <h3>Software Engineer II</h3>
+                <h3>Motorola Solutions</h3>
+            </div>
         </div>
-		<div id="right">
-			<div id="right-top">
-				<span class="link"><a href="?page=home">Home</a></span>
-				<span class="link"><a href="?page=blog#right-top">Blog</a></span>
-				<span class="link"><a href="?page=projects#right-top">Projects</a></span>
-				<span class="link-cat"></span>
-				<span class="link"><a href="https://github.com/fruzyna">GitHub</a></span>
-				<span class="link"><a href="https://linkedin.com/in/lfruzyna">LinkedIn</a></span>
-				<span class="link-cat"></span>
-				<span class="link"><a href="https://otd.fruzyna.net">OTD Calculator</a></span>
-				<span class="link"><a href="https://homepage.fruzyna.net">Homepage</a></span>
-				<span class="link"><a href="https://wildrank.wildstang.dev">WildRank</a></span>
-			</div>
-			<div id="right-content"></div>
-			<div id="footer">
+        <div id="right">
+            <div id="right-top">
+                <span class="link"><a href="?page=home">Home</a></span>
+                <span class="link"><a href="?page=blog#right-top">Blog</a></span>
+                <span class="link"><a href="?page=projects#right-top">Projects</a></span>
+                <span class="link-cat"></span>
+                <span class="link"><a href="https://github.com/fruzyna">GitHub</a></span>
+                <span class="link"><a href="https://linkedin.com/in/lfruzyna">LinkedIn</a></span>
+                <span class="link-cat"></span>
+                <span class="link"><a href="https://otd.fruzyna.net">OTD Calculator</a></span>
+                <span class="link"><a href="https://homepage.fruzyna.net">Homepage</a></span>
+                <span class="link"><a href="https://wildrank.wildstang.dev">WildRank</a></span>
+            </div>
+            <div id="right-content"></div>
+            <div id="footer">
         </div>
     </body>
 </html>

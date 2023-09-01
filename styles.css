@@ -1,142 +1,142 @@
 html, body {
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	height: 100%;
-	font-family: "Helvetica Neue", "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
 }
 
 #left {
-	width: 100%;
-	height: 30%;
-	display: table;
-	background-color: grey;
-	background-image: linear-gradient(0deg, #2C3E50 0%, rgba(255,255,255,0) 50%),
-					  url("assets/bay.jpg");
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
+    width: 100%;
+    height: 30%;
+    display: table;
+    background-color: grey;
+    background-image: linear-gradient(0deg, #2C3E50 0%, rgba(255,255,255,0) 50%),
+                      url("assets/bay.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #left-content {
-	display: table-cell;
-	vertical-align: middle;
-	color: #FAFAFA;
-	font-size: 1.5rem;
-	text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    color: #FAFAFA;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 #left-content h1 {
-	margin: 0;
+    margin: 0;
 }
 
 #left-content h3, #left-content h4 {
-	margin: 10px;
+    margin: 10px;
 }
 
 #right {
-	background-color: #FAFAFA;
-	min-height: 100%;
+    background-color: #FAFAFA;
+    min-height: 100%;
 }
 
 #right-top {
-	width: 100%;
-	padding-top: 8px;
-	background-color: #2C3E50;
-	text-align: center;
-	top: 0;
+    width: 100%;
+    padding-top: 8px;
+    background-color: #2C3E50;
+    text-align: center;
+    top: 0;
 }
 
 .link {
-	display: inline-table;
-	padding: 5px;
-	vertical-align: middle;
-	background-color: #34495E;
-	border-radius: 8px;
-	margin-bottom: 8px;
+    display: inline-table;
+    padding: 5px;
+    vertical-align: middle;
+    background-color: #34495E;
+    border-radius: 8px;
+    margin-bottom: 8px;
 }
 
 .link:hover {
-	background-color: #2C3E50;
+    background-color: #2C3E50;
 }
 
 .link a {
-	display: table-cell;
-	vertical-align: middle;
-	text-decoration: none;
-	color: #FAFAFA;
-	font-size: larger;
-	padding: 10px;
+    display: table-cell;
+    vertical-align: middle;
+    text-decoration: none;
+    color: #FAFAFA;
+    font-size: larger;
+    padding: 10px;
 }
 
 .link-cat {
-	display: inline-table;
-	padding: 5px;
-	vertical-align: middle;
+    display: inline-table;
+    padding: 5px;
+    vertical-align: middle;
     color: #FAFAFA;
-	font-size: large;
-	margin-bottom: 8px;
+    font-size: large;
+    margin-bottom: 8px;
 }
 
 .link-cat p {
-	display: table-cell;
-	vertical-align: middle;
-	padding: 10px;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 10px;
 }
 
 #right-content {
-	padding: 8px;
-	padding-top: 0;
+    padding: 8px;
+    padding-top: 0;
 }
 
 .card {
-	margin: auto;
-	padding: 16px;
-	background-color: #B9BFCB;
-	border-radius: 6px;
-	margin-top: 16px;
-	max-width: 900px;
-	line-height: 1.33;
+    margin: auto;
+    padding: 16px;
+    background-color: #B9BFCB;
+    border-radius: 6px;
+    margin-top: 16px;
+    max-width: 900px;
+    line-height: 1.33;
 }
 
 .card_title {
-	text-decoration: none;
-	color: black;
+    text-decoration: none;
+    color: black;
 }
 
 .card img {
-	max-width: 480px;
-	display: block;
-	margin: 0 auto;
-	padding-top: 10px;
-	padding-bottom: 10px;
+    max-width: 480px;
+    display: block;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 #footer {
-	width: 100%;
-	color: white;
-	float: bottom;
-	position: fixed;
-	bottom: 0%;
+    width: 100%;
+    color: white;
+    float: bottom;
+    position: fixed;
+    bottom: 0%;
 }
 
 .subtle_link {
-	color: #FAFAFA;
-	text-decoration: none;
+    color: #FAFAFA;
+    text-decoration: none;
 }
 
 .post-title {
-	margin-top: 5px;
-	margin-bottom: 12px;
+    margin-top: 5px;
+    margin-bottom: 12px;
 }
 
 .post-date {
-	margin-top: 12px;
-	margin-bottom: 12px;
+    margin-top: 12px;
+    margin-bottom: 12px;
 }
 
 .post-content {
-	line-height: 1.33;
-	margin: 0;
-	margin-bottom: 10px;
+    line-height: 1.33;
+    margin: 0;
+    margin-bottom: 10px;
 }
