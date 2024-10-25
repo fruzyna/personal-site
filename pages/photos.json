@@ -1,0 +1,18 @@
+[
+    {
+        "title": "Photos",
+        "date": "2024-10-24",
+        "content": ["I take pictures occasionally. Every once in a while I get lucky and take a good one. I shoot on a Fuji X-30 II."
+        ]
+    },
+    {
+        "title": "September '24 Trip to LA",
+        "date": "2024-10-24",
+        "content": ["<img src='assets/photos/dodger-stadium.jpg'>",
+            "<img src='assets/photos/starfleet-ovals.jpg' href='assets/photos/starfleet-ovals.jpg'>",
+            "<img src='assets/photos/expo-bench.jpg'>",
+            "<img src='assets/photos/starfleet-stairs.jpg'>",
+            "<img src='assets/photos/santafe-asbestos.jpg'>"
+        ]
+    }
+]
