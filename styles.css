@@ -110,6 +110,11 @@ html, body {
     margin: 0 auto;
     padding-top: 10px;
     padding-bottom: 10px;
+    transition:transform 0.25s ease;
+}
+
+.card img:hover {
+    transform:scale(1.5);
 }
 
 #footer {
