@@ -1,6 +1,12 @@
+from json import load
 from pathlib import Path
 from fastapi import FastAPI
 from fastapi.responses import FileResponse, HTMLResponse
+
+
+DEFAULT_CONFIG = {
+    'posts': 5
+}
 
 
 def build_page(name: str, date='', post='', index=0):
@@ -17,11 +23,17 @@ def build_page(name: str, date='', post='', index=0):
     if not page_dir.exists():
         body = build_post(name, f'Page "{name}" not found', [])
     else:
+        config = DEFAULT_CONFIG
+        config_file = page_dir / 'config.json'
+        if config_file.exists():
+            with open(config_file, 'r') as f:
+                config |= load(f)
+
         # create a post for each file, up to 5
         post_files = sorted(list(page_dir.glob('*.post')))
-        if index * 5 < len(post_files):
+        if index * config['posts'] < len(post_files):
             posts = []
-            for post_file in list(reversed(post_files))[index * 5:]:
+            for post_file in list(reversed(post_files))[index * config['posts']:]:
                 try:
                     meta, content = read_post(post_file)
                     if (not date or ('date' in meta and meta['date'] == date)) and (not post or ('title' in meta and meta['title'] == post)):
@@ -33,7 +45,7 @@ def build_page(name: str, date='', post='', index=0):
                     pass
 
                 # finish looping after 5 posts
-                if len(posts) == 5:
+                if len(posts) == config['posts']:
                     break
 
             body = ''.join(posts)
@@ -42,7 +54,7 @@ def build_page(name: str, date='', post='', index=0):
 
         if not date and not post:
             previous = f'<a href="/?page={name}&index={index - 1}" class="nav-button">Previous</a>' if index > 0 else ''
-            next = f'<a href="/?page={name}&index={index + 1}" class="nav-button">Next</a>' if len(post_files) > (index + 1) * 5 else ''
+            next = f'<a href="/?page={name}&index={index + 1}" class="nav-button">Next</a>' if len(post_files) > (index + 1) * config['posts'] else ''
             body += f'<center>{previous}{next}</center>'
 
     # place the posts in the page template
