@@ -4,30 +4,67 @@ from fastapi import FastAPI
 from fastapi.responses import FileResponse, HTMLResponse
 
 
-DEFAULT_CONFIG = {
+PAGES_DIR = Path('config/pages')
+
+DEFAULT_PAGE_CONFIG = {
     'posts': 5
 }
+
+config = {
+    'name': 'Name',
+    'title': 'Title',
+    'company': 'Company',
+    'color': '#662E6C',
+    'rels': [],
+    'links': []
+}
+
+# read template file in
+template = ''
+with open('template.html', 'r') as f:
+    template = f.read()
+
+# read global config file in
+config_file = PAGES_DIR / 'config.json'
+if config_file.exists():
+    with open(config_file, 'r') as f:
+        config |= load(f)
+
+# populate template
+rels = ''.join([f'<a rel="me" href="{link}"></a>' for link in config['rels']])
+
+links = ''
+for section in config['links']:
+    if links:
+        links += '<span class="link-cat"></span>'
+
+    for name in section:
+        links += f'<span class="link"><a href="{section[name]}">{name}</a></span>\n'
+
+template = template.replace('[NAME]', config['name']).replace('[TITLE]', config['title']).replace('[COMPANY]', config['company']).replace('[COLOR]', config['color']).replace('[RELS]', rels).replace('[LINKS]', links)
+
+
+def get_page_config(page_dir: Path):
+    """Reads the config in the given directory and XORs it with the defaults."""
+    config = DEFAULT_PAGE_CONFIG.copy()
+    config_file = page_dir / 'config.json'
+    if config_file.exists():
+        with open(config_file, 'r') as f:
+            config |= load(f)
+
+    return config
 
 
 def build_page(name: str, date='', post='', index=0):
     """Populates the page template with a given page or post."""
     body = ''
 
-    # read template file in
-    template = ''
-    with open('template.html', 'r') as f:
-        template = f.read()
-
     # one directory per page
-    page_dir = Path('pages') / name
+    page_dir = PAGES_DIR / name
     if not page_dir.exists():
         body = build_post(name, f'Page "{name}" not found', [])
     else:
-        config = DEFAULT_CONFIG
-        config_file = page_dir / 'config.json'
-        if config_file.exists():
-            with open(config_file, 'r') as f:
-                config |= load(f)
+        config = get_page_config(page_dir)
 
         # create a post for each file, up to 5
         post_files = sorted(list(page_dir.glob('*.post')))
@@ -58,7 +95,7 @@ def build_page(name: str, date='', post='', index=0):
             body += f'<center>{previous}{next}</center>'
 
     # place the posts in the page template
-    return template.replace('BODY', body)
+    return template.replace('[BODY]', body)
 
 
 def read_post(post_file: Path):
@@ -101,18 +138,27 @@ def build_post(page: str, title: str, content: list[str], date='', link='', gall
     else:
         # assume each line is a path to an image
         body = ''.join([f'<img src="{url}">' for url in content])
-        print(body)
 
     return f'<div class="card">\
-    <h1 class="post-title">\
-        <a class="card_title" href="?page={page}{date_param}&title={title}">{title}</a>\
-    </h1>\
-    <p class="post-date">\
-        <i>\
-            {date_el}\
-            {link_el}\
-        </i>\
-    </p>\
+    <div class="post-header">\
+        <span class="post-left">\
+            <h1 class="post-title">\
+                <a class="card_title" href="?page={page}{date_param}&title={title}">{title}</a>\
+            </h1>\
+            <p class="post-date">\
+                <i>\
+                    {date_el}\
+                </i>\
+            </p>\
+        </span>\
+        <span class="post-right">\
+            <p class="post-links">\
+                <i>\
+                    {link_el}\
+                </i>\
+            </p>\
+        </span>\
+    </div>\
     <p class="post-content">{body}</p>\
 </div>'
 
@@ -129,11 +175,6 @@ async def index(page: str = 'home', date: str = '', title: str = '', index: int 
 async def styles():
     return 'styles.css'
 
-@app.get('/favicon.ico', response_class=FileResponse)
-async def styles():
-    return 'favicon.ico'
-
-@app.get('/assets/{file_path:path}', response_class=FileResponse)
+@app.get('/{file_path:path}', response_class=FileResponse)
 async def assets(file_path):
-    print(file_path)
-    return f'assets/{file_path}'
+    return f'config/assets/{file_path}'
