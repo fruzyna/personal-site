@@ -12,7 +12,7 @@ html, body {
     display: table;
     background-color: grey;
     background-image: linear-gradient(0deg, #2C3E50 0%, rgba(255,255,255,0) 50%),
-                      url("assets/bay.jpg");
+                      url("background.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -21,7 +21,7 @@ html, body {
 #left-content {
     display: table-cell;
     vertical-align: middle;
-    color: #FAFAFA;
+    color: #F0F0F0;
     font-size: 1.5rem;
     text-align: center;
 }
@@ -35,7 +35,7 @@ html, body {
 }
 
 #right {
-    background-color: #FAFAFA;
+    background-color: #FCFCFC;
     min-height: 100%;
 }
 
@@ -114,7 +114,7 @@ html, body {
 }
 
 .card img:hover {
-    transform:scale(1.5);
+    transform: scale(1.5);
 }
 
 #footer {
@@ -130,6 +130,14 @@ html, body {
     text-decoration: none;
 }
 
+.post-left {
+    display: inline-block;
+}
+
+.post-right {
+    float: right;
+}
+
 .post-title {
     margin-top: 5px;
     margin-bottom: 12px;
@@ -138,6 +146,10 @@ html, body {
 .post-date {
     margin-top: 12px;
     margin-bottom: 12px;
+}
+
+.post-links {
+    margin: 0;
 }
 
 .post-content {
@@ -160,4 +172,13 @@ html, body {
 
 .nav-button:hover {
     background-color: #2C3E50;
+}
+
+.card, .nav-button, #right-top {
+    box-shadow:
+      0 1px 1px hsl(0deg 0% 0% / 0.075),
+      0 2px 2px hsl(0deg 0% 0% / 0.075),
+      0 4px 4px hsl(0deg 0% 0% / 0.075),
+      0 8px 8px hsl(0deg 0% 0% / 0.075),
+      0 16px 16px hsl(0deg 0% 0% / 0.075);
 }
